@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Green Cotton Kurti - Details</title>
+    <style>
+        body { 
+            font-family: 'Segoe UI', sans-serif; 
+            background: #fdf5f7; 
+            margin: 0; 
+            padding: 20px; 
+            color: #333;
+        }
+        .container { 
+            max-width: 1000px; 
+            margin: auto; 
+            background: white; 
+            padding: 30px; 
+            border-radius: 10px; 
+            display: flex; 
+            gap: 40px; 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        /* Navigation */
+        .back-link { display: block; margin-bottom: 20px; text-decoration: none; color: #007185; font-weight: bold; }
+        
+        /* Left Side: Images */
+        .image-section { flex: 1; text-align: center; }
+        .main-img { width: 100%; border-radius: 8px; border: 1px solid #ddd; }
+        .thumbnails { display: flex; gap: 10px; margin-top: 15px; justify-content: center; }
+        .thumbnails img { 
+            width: 70px; 
+            height: 70px; 
+            object-fit: cover; 
+            border: 2px solid #ddd; 
+            border-radius: 5px; 
+            cursor: pointer; 
+        }
+        .thumbnails img:hover { border-color: #ffd814; }
+
+        /* Right Side: Info */
+        .info-section { flex: 1; }
+        h1 { font-size: 28px; margin-top: 0; }
+        .price { font-size: 24px; color: #B12704; font-weight: bold; margin: 15px 0; }
+        .description { line-height: 1.6; color: #565959; font-size: 15px; }
+        
+        /* Amazon Style List */
+        ul { padding-left: 20px; color: #565959; }
+        li { margin-bottom: 8px; }
+
+        .buy-box {
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        .btn-whatsapp { 
+            display: block; 
+            background: #ffd814; 
+            color: black; 
+            text-align: center; 
+            padding: 12px; 
+            text-decoration: none; 
+            border-radius: 25px; 
+            font-weight: bold; 
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .btn-whatsapp:hover { background: #f7ca00; }
+
+        /* Mobile View */
+        @media (max-width: 768px) {
+            .container { flex-direction: column; }
+        }
+        .main-img-container {
+    width: 100%;
+    height: 450px; /* Keeps the big box size consistent */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border: 1px solid #eee;
+    margin-bottom: 15px;
+}
+
+.main-img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain; /* Ensures the image doesn't stretch weirdly */
+}
+
+.thumbnails img { 
+    width: 60px; 
+    height: 60px; 
+    object-fit: cover; 
+    border: 1px solid #ddd; 
+    border-radius: 4px; 
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.thumbnails img:hover { 
+    border-color: #e77600; /* Amazon orange hover */
+    box-shadow: 0 0 3px #e77600;
+}
+.zoom-container {
+    position: relative;
+    width: 100%;
+    height: 450px;
+    border: 1px solid #ddd;
+    cursor: crosshair;
+}
+
+#mainImage {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+#lens {
+    position: absolute;
+    border: 1px solid #d4d4d4;
+    width: 100px;
+    height: 100px;
+    background-color: rgba(255, 255, 255, 0.4);
+    display: none; /* Hidden until hover */
+}
+
+.img-zoom-result {
+    border: 1px solid #d4d4d4;
+    width: 400px; 
+    height: 450px; 
+    position: absolute;
+    
+    /* FIX: Instead of 102%, we use a fixed pixel distance */
+    /* If your image is 100% of a 500px column, 510px puts it right next to it */
+    left: 650px; 
+    top: 0;
+    
+    z-index: 1000; /* Ensures it floats ABOVE the description text */
+    background-repeat: no-repeat;
+    display: none; 
+    background-color: white;
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.3);
+    pointer-events: none; /* Mouse ignores this window so it doesn't flicker */
+}
+/* Add this to your zoom-container to make sure the result stays attached to it */
+.zoom-container {
+    position: relative; /* This is the "Anchor" for the result window */
+    width: 70%;
+    height: 450px;
+    border: 1px solid #ddd;
+    cursor: crosshair;
+}
+    </style>
+</head>
+<body>
+
+    <a href="../kurti.html" class="back-link">← Back to Catalog</a>
+
+    <div class="container">
+        <div class="image-section" style="position: relative; width: 450px; float: left;">
+            <div class="zoom-container" id="img-container">
+        <div id="lens"></div>
+        <img src="k4.jpg" id="mainImage" alt="Product Main View">
+    </div>
+<div id="zoom-result" class="img-zoom-result"></div>
+    <div class="thumbnails">
+        <img src="k4.jpg" onclick="changeImage('k4.jpg')" alt="Front View">
+        <img src="kd1.jpg" onclick="changeImage('kd1.jpg')" alt="Side View">
+        <img src="kd2.jpg" onclick="changeImage('kd2.jpg')" alt="Back View">
+    </div>
+    <p style="font-size: 12px; color: #82d682;">Scroll mouse to change zoom level</p>
+</div>
+        </div>
+
+        <div class="info-section">
+            <h1>Orange Cotton Kurti</h1>
+            <p class="price">₹2,500</p>
+            <hr>
+            <h3>Product Details</h3>
+            <ul class="description">
+                <li>Material: 100% Pure Premium Cotton</li>
+                <li>Design: Elegant floral embroidery on the neckline</li>
+                <li>Occasion: Perfect for summer outings and office wear</li>
+                <li>Care: Hand wash recommended for long-lasting color</li>
+            </ul>
+
+            <div class="buy-box">
+                <p style="color: green; font-weight: bold;">In Stock</p>
+                <a href="https://wa.me/917797509989?text=Hi! I want to buy the Green Cotton Kurti (GCK-01)" 
+                   class="btn-whatsapp" target="_blank">Order via WhatsApp</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function changeImage(imagePath) {
+        // This finds the big image and swaps its 'src' to the new path
+        var mainImg = document.getElementById('mainImage');
+        mainImg.src = imagePath;
+    }
+    let zoomLevel = 2; 
+const maxZoom = 4; 
+const minZoom = 1;
+
+function setupZoom() {
+    const img = document.getElementById("mainImage");
+    const result = document.getElementById("zoom-result");
+    const lens = document.getElementById("lens");
+    const container = document.getElementById("img-container");
+
+    container.addEventListener("mousemove", moveLens);
+    
+    container.addEventListener("mouseenter", () => {
+        lens.style.display = "block";
+        result.style.display = "block";
+        // Sync the result image with the current main image
+        result.style.backgroundImage = `url('${img.src}')`;
+    });
+
+    container.addEventListener("mouseleave", () => {
+        lens.style.display = "none";
+        result.style.display = "none";
+    });
+
+    container.addEventListener("wheel", (e) => {
+        e.preventDefault();
+        if (e.deltaY < 0) {
+            if (zoomLevel < maxZoom) zoomLevel += 0.2;
+        } else {
+            if (zoomLevel > minZoom) zoomLevel -= 0.2;
+        }
+        moveLens(e); 
+    });
+
+    function moveLens(e) {
+        const rect = container.getBoundingClientRect();
+        
+        // Calculate cursor position relative to the image
+        let x = e.pageX - rect.left - window.pageXOffset;
+        let y = e.pageY - rect.top - window.pageYOffset;
+
+        // Center the lens on the cursor
+        let lensX = x - (lens.offsetWidth / 2);
+        let lensY = y - (lens.offsetHeight / 2);
+
+        // Prevent lens from going out of bounds
+        if (lensX > container.offsetWidth - lens.offsetWidth) lensX = container.offsetWidth - lens.offsetWidth;
+        if (lensX < 0) lensX = 0;
+        if (lensY > container.offsetHeight - lens.offsetHeight) lensY = container.offsetHeight - lens.offsetHeight;
+        if (lensY < 0) lensY = 0;
+
+        lens.style.left = lensX + "px";
+        lens.style.top = lensY + "px";
+
+        // THE ZOOM MATH: 
+        // We move the background of the result div in the opposite direction of the lens
+        const fx = result.offsetWidth / lens.offsetWidth;
+        const fy = result.offsetHeight / lens.offsetHeight;
+
+        result.style.backgroundSize = (container.offsetWidth * zoomLevel) + "px " + (container.offsetHeight * zoomLevel) + "px";
+        
+        // This calculates the exact "slice" of the image to show
+        let posX = (lensX * zoomLevel);
+        let posY = (lensY * zoomLevel);
+        
+        result.style.backgroundPosition = `-${posX}px -${posY}px`;
+    }
+}
+
+// Call this function to ensure it runs
+setupZoom();
+
+function changeImage(fileName) {
+    const img = document.getElementById('mainImage');
+    const result = document.getElementById("zoom-result");
+    img.src = fileName;
+    // Update the zoom window immediately when a thumbnail is clicked
+    result.style.backgroundImage = `url('${fileName}')`;
+}
+    </script>
+
+</body>
+</html>
