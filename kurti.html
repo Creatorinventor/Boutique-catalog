@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Boutique Catalog</title>
+    <style>
+        body { 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+    background: #eaeded; /* Amazon-style light grey background */
+    margin: 0;
+    padding: 20px;
+}
+h1 { color: #09d6f1; margin-bottom: 10px; margin-top: 5px; text-align: center; font-size: 50px; font-family: Georgia, 'Times New Roman', Times, serif; background-image: url("bw.jpg"); background-position: center; background-repeat: no-repeat; background-size:cover ; padding: 100px; 
+}
+
+.grid { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); 
+    gap: 15px; 
+    max-width: 1200px;
+    margin: 0 auto;
+}
+/* Remove default link styling from the card */
+.card-link {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    align-items: center;
+    flex: 1; /* Takes up all space except the button */
+}
+
+.card {
+    display: flex;
+    flex-direction: row; /* Side-by-side for desktop */
+    position: relative;
+    transition: background 0.3s;
+}
+
+/* Optional: Slight background change when hovering the whole card */
+.card:hover {
+    background-color: #f9f9f9;
+    cursor: pointer;
+}
+
+/* Ensure the WhatsApp button stays prominent */
+.card .btn {
+    margin-left: 20px;
+    white-space: nowrap; /* Keeps text on one line */
+    z-index: 2; /* Keeps it "above" the card link */
+}
+
+.card {
+    display: flex; /* This puts items side-by-side */
+    align-items: center; /* Centers items vertically */
+    background: white;
+    padding: 20px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    text-align: left; /* Aligns text to the left for a cleaner look */
+}
+.card:hover { 
+    transform: translateY(-5px); 
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);}
+.card img {
+    width: 20%; /* Fixed width for the image */
+    height: 20%;
+    border-radius: 4px;
+    margin-right: 25px; /* Creates space between image and text */
+}
+
+.card-content {
+    flex: 1; /* This tells the text box to take up the remaining space */
+}
+
+h3 {
+    margin: 0 0 10px 0;
+    font-size: 22px;
+}
+
+.description {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 15px;
+    line-height: 1.5; /* Makes text easier to read */
+}
+
+.price {
+    font-size: 24px;
+    font-weight: bold;
+    color: #B12704;
+    margin-bottom: 15px;
+}
+
+.btn {
+    display: inline-block; /* Makes the button only as wide as the text */
+    padding: 10px 25px;
+    background: #ffd814;
+    border-radius: 50px;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+.btn:hover { background: #f7ca00; }
+@media (max-width: 600px) {
+    .card {
+        flex-direction: column; /* Stacks image on top of text for phones */
+        text-align: center;
+    }
+    .card img {
+        margin-right: 0;
+        margin-bottom: 15px;
+        width: 100%; /* Makes image full width on small screens */
+    }
+}
+</style>
+</head>
+</head>
+<body>
+    <h1>Boutique Summer Collection</h1>
+    <div class="card">
+        <a href="gck/g.html" class="card-link">
+    <img src="k1.jpg" alt="n1 Green Cotton Kurti">
+
+    <div class="card-content">
+        <h3>Green Cotton Kurti</h3> 
+        <p class="description">Handcrafted 100% pure cotton kurti with elegant embroidery. Perfect for summer wear.</p>
+        <p class="price">₹2,500</p>
+            </div>
+        </a>
+        <a href="https://wa.me/917797509989?text=Order%20Green%20Kurti" class="btn">Order on WhatsApp</a>
+</div>
+<div class="card">
+    <a href="gwck/gc.html" class="card-link">
+    <img src="k2.jpg" alt="n2 Green Cotton Kurti">
+
+    <div class="card-content">
+        <h3>Green with white lace Cotton Kurti</h3> 
+        <p class="description">Handcrafted 100% pure cotton kurti with elegant embroidery. Perfect for summer wear.</p>
+        <p class="price">₹2,500</p>
+            </div>
+    </a>
+        <a href="https://wa.me/917797509989?text=Order%20Green%20Kurti" class="btn">Order on WhatsApp</a>
+</div>
+<div class="card">
+    <a href="cck/c.html" class="card-link">
+    <img src="k3.jpg" alt="Cyan Cotton Kurti">
+
+    <div class="card-content">
+        <h3>Cyan Cotton Kurti</h3> 
+        <p class="description">Handcrafted 100% pure cotton kurti with designer style. Perfect for summer wear.</p>
+        <p class="price">₹2,500</p>
+            </div>
+</a>
+        <a href="https://wa.me/917797509989?text=Order%20Green%20Kurti" class="btn">Order on WhatsApp</a>
+    </div>
+</div>
+<div class="card">
+    <a href="ock/o.html" class="card-link">
+    <img src="k4.jpg" alt="Orange Cotton Kurti">
+    <div class="card-content">
+        <h3>Orange Cotton Kurti</h3> 
+        <p class="description">Handcrafted 100% pure cotton kurti with elegant embroidery and for everyday. Perfect for summer wear.</p>
+        <p class="price">₹2,500</p>
+            </div>
+</a>
+        <a href="https://wa.me/917797509989?text=Order%20Green%20Kurti" class="btn">Order on WhatsApp</a>
+    </div>
+</div>
+<div class="card">
+    <a href="rck/r.html" class="card-link">
+    <img src="k5.jpg" alt="Red Cotton Kurti">
+
+    <div class="card-content">
+        <h3>Red Cotton Kurti</h3> 
+        <p class="description">Handcrafted 100% pure cotton kurti with elegant embroidery and ethnic style. Perfect for summer wear.</p>
+        <p class="price">₹2,500</p>
+            </div>
+</a>
+        <a href="https://wa.me/917797509989?text=Order%20Green%20Kurti" class="btn">Order on WhatsApp</a>
+    </div>
+</div>
+<div class="card">
+    <a href="wck/w.html" class="card-link">
+    <img src="k6.jpg" alt="White Cotton Kurti">
+
+    <div class="card-content">
+        <h3>White with laced Cotton Kurti</h3> 
+        <p class="description">Handcrafted 100% pure cotton kurti with elegant embroidery and best to beat the heat. Perfect for summer wear.</p>
+        <p class="price">₹2,500</p>
+            </div>
+</a>
+        <a href="https://wa.me/917797509989?text=Order%20Green%20Kurti" class="btn">Order on WhatsApp</a>
+    </div>
+</div>
+</body>
+</html>
