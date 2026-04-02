@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sign In - VISWAROOPINI</title>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; background: #eaeded; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+        .login-card { background: white; padding: 40px; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); text-align: center; width: 350px; }
+        h2 { color: #232f3e; }
+        .auth-btn { display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; padding: 12px; margin: 10px 0; border: 1px solid #ddd; border-radius: 8px; cursor: pointer; font-weight: bold; transition: 0.3s; background: white; }
+        .google-btn:hover { background: #f1f1f1; }
+        .github-btn { background: #24292e; color: white; }
+        .input-group { margin: 15px 0; text-align: left; }
+        input { width: 100%; padding: 10px; margin-top: 5px; border: 1px solid #ddd; border-radius: 4px; box-sizing: border-box; }
+    </style>
+</head>
+<body>
+    <div class="login-card">
+        <h2>Join VISWAROOPINI</h2>
+        <div class="input-group">
+            <label>Phone Number</label>
+            <input type="text" id="userPhone" placeholder="+91 0000000000">
+        </div>
+        
+        <button class="auth-btn google-btn" onclick="handleAuth('Google')">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" width="20"> Continue with Google
+        </button>
+        
+        <button class="auth-btn github-btn" onclick="handleAuth('GitHub')">
+            Continue with GitHub
+        </button>
+    </div>
+
+    <script>
+        function handleAuth(provider) {
+            const phone = document.getElementById('userPhone').value;
+            if(!phone) {
+                alert("Please enter your phone number first!");
+                return;
+            }
+
+            // Simulate Auth Data (In a real app, this comes from Google/GitHub API)
+            const userData = {
+                name: provider === 'Google' ? "John Doe" : "DevUser",
+                email: provider === 'Google' ? "john@gmail.com" : "dev@github.com",
+                phone: phone,
+                loggedIn: true
+            };
+
+            // Save to "Database" (LocalStorage for now)
+            localStorage.setItem('viswaroopini_user', JSON.stringify(userData));
+            
+            // Also add to a "Customer List" for the admin dashboard
+            let customers = JSON.parse(localStorage.getItem('customer_db')) || [];
+            customers.push(userData);
+            localStorage.setItem('customer_db', JSON.stringify(customers));
+
+            window.location.href = "index.html"; // Redirect to main page
+        }
+    </script>
+</body>
+</html>

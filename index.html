@@ -2,168 +2,44 @@
 <html>
 <head>
     <title>Boutique Catalog</title>
-    <style>
-        body { 
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-    background: #eaeded; /* Amazon-style light grey background */
-    margin: 0;
-    padding: 20px;
-}
-h1 { color: #09d6f1; margin-bottom: 10px; margin-top: 5px; text-align: center; font-size: 50px; font-family: Georgia, 'Times New Roman', Times, serif; background-image: url("bw.png"); background-position: center; background-repeat: no-repeat; background-size:cover ; padding: 130px; 
-}
-
-.grid { 
-    display: grid; 
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); 
-    gap: 15px; 
-    max-width: 1200px;
-    margin: 0 auto;
-}
-/* Remove default link styling from the card */
-.card-link {
-    text-decoration: none;
-    color: inherit;
-    display: flex;
-    align-items: center;
-    flex: 1; /* Takes up all space except the button */
-}
-
-.card {
-    display: flex;
-    flex-direction: row; /* Side-by-side for desktop */
-    position: relative;
-    transition: background 0.3s;
-}
-
-/* Optional: Slight background change when hovering the whole card */
-.card:hover {
-    background-color: #f9f9f9;
-    cursor: pointer;
-}
-
-/* Ensure the WhatsApp button stays prominent */
-.card .btn {
-    margin-left: 20px;
-    white-space: nowrap; /* Keeps text on one line */
-    z-index: 2; /* Keeps it "above" the card link */
-}
-
-.card {
-    display: flex; /* This puts items side-by-side */
-    align-items: center; /* Centers items vertically */
-    background: white;
-    padding: 20px;
-    margin-bottom: 20px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    text-align: left; /* Aligns text to the left for a cleaner look */
-}
-.card:hover { 
-    transform: translateY(-5px); 
-    box-shadow: 0 6px 12px rgba(0,0,0,0.15);}
-.card img {
-    width: 20%; /* Fixed width for the image */
-    height: 20%;
-    border-radius: 4px;
-    margin-right: 25px; /* Creates space between image and text */
-}
-
-.card-content {
-    flex: 1; /* This tells the text box to take up the remaining space */
-}
-
-h3 {
-    margin: 0 0 10px 0;
-    font-size: 22px;
-}
-
-.description {
-    font-size: 14px;
-    color: #555;
-    margin-bottom: 15px;
-    line-height: 1.5; /* Makes text easier to read */
-}
-
-.price {
-    font-size: 24px;
-    font-weight: bold;
-    color: #B12704;
-    margin-bottom: 15px;
-}
-
-.btn {
-    display: inline-block; /* Makes the button only as wide as the text */
-    padding: 10px 25px;
-    background: #ffd814;
-    border-radius: 50px;
-    text-decoration: none;
-    color: black;
-    font-weight: bold;
-}
-.btn:hover { background: #f7ca00; }
-@media (max-width: 600px) {
-    .card {
-        flex-direction: column; /* Stacks image on top of text for phones */
-        text-align: center;
-    }
-    .card img {
-        margin-right: 0;
-        margin-bottom: 15px;
-        width: 100%; /* Makes image full width on small screens */
-    }
-}
-        footer {
-    background-color: #232f3e; /* Dark blue/grey like Amazon footer */
-    color: white;
-    padding: 40px 20px;
-    margin-top: 40px;
-    text-align: center;
-}
-
-.footer-container {
-    max-width: 1000px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 30px;
-}
-
-.footer-section h4 {
-    color: #ffd814;
-    margin-bottom: 15px;
-    text-transform: uppercase;
-    font-size: 16px;
-}
-
-.footer-section p, .footer-section a {
-    color: #ddd;
-    text-decoration: none;
-    font-size: 14px;
-    line-height: 1.8;
-}
-
-.footer-section a:hover {
-    color: white;
-    text-decoration: underline;
-}
-
-.social-links a {
-    margin: 0 10px;
-    font-size: 20px;
-}
-
-.copyright {
-    margin-top: 30px;
-    border-top: 1px solid #3a4553;
-    padding-top: 20px;
-    font-size: 12px;
-    color: #999;
-}
-</style>
-    <i><script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script></i>
+    <link rel="stylesheet" href="style.css">
+<i><script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script></i>
 </head>
 <body>
     <h1></h1>
+    <div id="welcome-toast">Welcome, <span id="user-span"></span>!</div>
+    <div class="menu-trigger">
+    <i class="fas fa-bars"></i>
+</div>
+
+<div class="navigation-sidebar">
+    <div class="sidebar-brand" id="sidebar-name">VISWAROOPINI</div>
+    
+    <div class="sidebar-group">
+    <small>USER ACCOUNT</small>
+    <a href="signup.html" id="nav-signin">
+        <i class="fas fa-user-circle"></i> Sign In / Profile
+    </a>
+    
+    <a href="javascript:void(0)" id="nav-logout" onclick="processLogout()" style="display: none; color: #ff4d4d;">
+        <i class="fas fa-sign-out-alt"></i> Logout
+    </a>
+
+    <a href="javascript:void(0)" onclick="viewMyOrders()">
+        <i class="fas fa-shopping-bag"></i> My Orders
+    </a>
+</div>
+        <div class="sidebar-group">
+        <small>INVENTORY LOGIC</small>
+        <a href="javascript:void(0)" onclick="openPrivateDashboard()">
+            <i class="fas fa-database"></i> Inventory Dashboard
+        </a>
+    </div>
+    </div>
+
+<div class="main-content">
+     </div>
+
     <div class="card">
         <a href="gck/g.html" class="card-link">
     <img src="k1.jpg" alt="n1 Green Cotton Kurti">
@@ -239,7 +115,7 @@ h3 {
         <a href="https://wa.me/917797509989?text=Order%20Green%20Kurti" class="btn">Order on WhatsApp</a>
     </div>
 </div>
-    <footer>
+<footer>
     <div class="footer-container">
         <div class="footer-section">
             <h4>Contact Us</h4>
@@ -266,5 +142,231 @@ h3 {
         &copy; 2026 VISWAROOPINI. All rights reserved.
     </div>
 </footer>
+<script>
+// 1. ACCESS THE PRIVATE DASHBOARD
+function openPrivateDashboard() {
+    const pin = prompt("Enter VISWAROOPINI Admin PIN:");
+    if (pin === "viswaroopini") { 
+        // This will only work if you created a file named admin-dashboard.html
+        window.location.href = "admin-dashboard.html"; 
+    } else {
+        alert("Incorrect PIN. Access Denied.");
+    }
+}
+
+// 2. SIGN IN LOGIC
+function userSignIn() {
+    let name = prompt("Enter your name to sign in:");
+    if (name) {
+        localStorage.setItem('boutiqueUser', name);
+        alert("Welcome, " + name + "!");
+        // Updates the sidebar text to show the name
+        document.querySelector('.sidebar-brand').innerText = "Hello, " + name;
+    }
+}
+
+// 3. VIEW ORDERS LOGIC
+function viewMyOrders() {
+    let orders = JSON.parse(localStorage.getItem('myOrders')) || [];
+    let user = localStorage.getItem('boutiqueUser') || "Guest";
+    
+    if (orders.length === 0) {
+        alert(user + ", you haven't clicked any items yet.");
+    } else {
+        alert(user + "'s Order Interest:\n" + orders.join("\n"));
+    }
+}
+
+// 4. AUTOMATICALLY TRACK CLICKS
+document.querySelectorAll('.btn').forEach(button => {
+    button.addEventListener('click', function() {
+        let item = this.closest('.card').querySelector('h3').innerText;
+        let orders = JSON.parse(localStorage.getItem('myOrders')) || [];
+        orders.push(item);
+        localStorage.setItem('myOrders', JSON.stringify(orders));
+    });
+});
+document.addEventListener("DOMContentLoaded", function() {
+    const user = JSON.parse(localStorage.getItem('viswaroopini_user'));
+    const toast = document.getElementById('welcome-toast');
+    const userSpan = document.getElementById('user-span');
+    const waButtons = document.querySelectorAll('.btn');
+
+    if (user && user.loggedIn) {
+        // Show Welcome Message
+        toast.style.display = 'block';
+        userSpan.innerText = user.name;
+        setTimeout(() => { toast.style.fadeOut = "slow"; }, 5000); // Hide after 5s
+
+        // Update Sidebar
+        document.querySelector('.sidebar-brand').innerText = "Hello, " + user.name;
+    } else {
+        // Lock WhatsApp Buttons
+        waButtons.forEach(btn => {
+            btn.innerText = "Signup Required";
+            btn.classList.add('locked-btn');
+            btn.href = "login.html"; // Redirect to login if clicked
+        });
+    }
+});
+document.addEventListener("DOMContentLoaded", function() {
+    const user = JSON.parse(localStorage.getItem('viswaroopini_active_user'));
+    
+    // Add the popup element to body if it's not there
+    const popupHtml = '<div id="welcome-popup">Welcome, <span id="user-name-display"></span>!</div>';
+    document.body.insertAdjacentHTML('beforeend', popupHtml);
+
+    if (user && user.isLoggedIn) {
+        // 1. Show Welcome Popup
+        const popup = document.getElementById('welcome-popup');
+        document.getElementById('user-name-display').innerText = user.name;
+        popup.style.display = 'block';
+        
+        // Hide popup after 4 seconds
+        setTimeout(() => { popup.style.display = 'none'; }, 4000);
+
+        // 2. Update Sidebar Title
+        document.querySelector('.sidebar-brand').innerText = "HELLO, " + user.name.toUpperCase();
+    } else {
+        // 3. Lock WhatsApp Buttons if not signed in
+        document.querySelectorAll('.btn').forEach(btn => {
+            btn.innerText = "Signup to Order";
+            btn.style.background = "#ccc";
+            btn.onclick = function(e) {
+                e.preventDefault();
+                window.location.href = "signup.html";
+            };
+        });
+    }
+});
+function updateUI() {
+    const user = JSON.parse(localStorage.getItem('viswaroopini_active_user'));
+    const authLink = document.getElementById('auth-link');
+    const logoutBtn = document.getElementById('logout-btn');
+    const sidebarName = document.getElementById('sidebar-name');
+
+    if (user && user.isLoggedIn) {
+        // User is logged in
+        sidebarName.innerText = "HELLO, " + user.name.toUpperCase();
+        authLink.style.display = "none"; // Hide "Sign In"
+        logoutBtn.style.display = "flex"; // Show "Logout"
+    } else {
+        // User is logged out
+        sidebarName.innerText = "VISWAROOPINI";
+        authLink.style.display = "flex";
+        logoutBtn.style.display = "none";
+    }
+}
+
+function handleLogout() {
+    if(confirm("Are you sure you want to logout?")) {
+        // REMOVE only the session data (clears it from their machine)
+        localStorage.removeItem('viswaroopini_active_user');
+        localStorage.removeItem('myOrders'); 
+        
+        // DO NOT remove 'viswaroopini_customer_db' here! 
+        // That is your "Admin" record.
+        
+        alert("Logged out successfully.");
+        window.location.reload();
+    }
+}
+function checkLoginStatus() {
+    const activeUser = JSON.parse(localStorage.getItem('viswaroopini_active_user'));
+    const signInLink = document.getElementById('nav-signin');
+    const logoutLink = document.getElementById('nav-logout');
+    const sidebarBrand = document.querySelector('.sidebar-brand');
+
+    if (activeUser) {
+        // 1. User is logged in: Show Logout, Hide Sign In
+        signInLink.style.display = 'none';
+        logoutLink.style.display = 'flex';
+        sidebarBrand.innerText = "Hello, " + activeUser.name;
+
+        // 2. Show the Floating Welcome Rectangle
+        showWelcomeToast(activeUser.name);
+    } else {
+        // 3. User is logged out: Lock the WhatsApp buttons
+        lockOrderButtons();
+    }
+}
+
+function showWelcomeToast(name) {
+    // Create the element if it doesn't exist
+    let toast = document.createElement('div');
+    toast.style = "position:fixed; top:20px; right:20px; background:white; color:#232f3e; padding:15px 25px; border-radius:10px; box-shadow:0 5px 15px rgba(0,0,0,0.2); border-right: 5px solid #ffd814; z-index:10000; font-weight:bold;";
+    toast.innerHTML = `Welcome, ${name} ✨`;
+    document.body.appendChild(toast);
+    
+    // Disappear after 4 seconds
+    setTimeout(() => { toast.remove(); }, 4000);
+}
+
+function lockOrderButtons() {
+    document.querySelectorAll('.btn').forEach(btn => {
+        btn.innerText = "Signup Required";
+        btn.style.background = "#888";
+        btn.onclick = (e) => {
+            e.preventDefault();
+            alert("Please Sign In to order via WhatsApp.");
+            window.location.href = "signup.html";
+        };
+    });
+}
+
+function processLogout() {
+    // Clear ONLY the local session (clears from customer's machine)
+    localStorage.removeItem('viswaroopini_active_user');
+    localStorage.removeItem('myOrders');
+    
+    alert("Logged out successfully.");
+    window.location.reload();
+}
+
+// Run the check as soon as the page loads
+window.onload = checkLoginStatus;
+function checkLoginStatus() {
+    // Look for the user session we saved in signup.html
+    const activeUser = JSON.parse(localStorage.getItem('viswaroopini_active_user'));
+    
+    const signInLink = document.getElementById('nav-signin');
+    const logoutLink = document.getElementById('nav-logout');
+    const sidebarBrand = document.querySelector('.sidebar-brand');
+
+    if (activeUser && activeUser.name) {
+        // USER IS LOGGED IN
+        if(signInLink) signInLink.style.display = 'none'; // Hide Sign In
+        if(logoutLink) logoutLink.style.display = 'flex'; // Show Logout
+        
+        sidebarBrand.innerText = "Hello, " + activeUser.name;
+        
+        // Optional: Show the welcome toast if it's their first time landing here
+        if (!sessionStorage.getItem('welcomeShown')) {
+            showWelcomeToast(activeUser.name);
+            sessionStorage.setItem('welcomeShown', 'true');
+        }
+    } else {
+        // USER IS LOGGED OUT
+        if(signInLink) signInLink.style.display = 'flex';
+        if(logoutLink) logoutLink.style.display = 'none';
+        sidebarBrand.innerText = "VISWAROOPINI";
+    }
+}
+
+function processLogout() {
+    if(confirm("Are you sure you want to logout?")) {
+        // Clear session but keep the admin database intact
+        localStorage.removeItem('viswaroopini_active_user');
+        sessionStorage.removeItem('welcomeShown');
+        
+        alert("Logged out successfully.");
+        window.location.reload(); // Refresh to update UI
+    }
+}
+
+// CRITICAL: Run this every time the window gains focus or loads
+window.addEventListener('load', checkLoginStatus);
+window.addEventListener('pageshow', checkLoginStatus);
+</script>
 </body>
 </html>

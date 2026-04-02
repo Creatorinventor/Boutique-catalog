@@ -1,0 +1,296 @@
+body { 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+    background: #eaeded; /* Amazon-style light grey background */
+    margin: 0;
+    padding: 20px;
+}
+h1 { color: #09d6f1; margin-bottom: 10px; margin-top: 5px; text-align: center; font-size: 50px; font-family: Georgia, 'Times New Roman', Times, serif; background-image: url("bw.png"); background-position: center; background-repeat: no-repeat; background-size:cover ; padding: 130px; 
+}
+
+.grid { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); 
+    gap: 15px; 
+    max-width: 1200px;
+    margin: 0 auto;
+}
+/* Remove default link styling from the card */
+.card-link {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    align-items: center;
+    flex: 1; /* Takes up all space except the button */
+}
+
+.card {
+    display: flex;
+    flex-direction: row; /* Side-by-side for desktop */
+    position: relative;
+    transition: background 0.3s;
+}
+
+/* Optional: Slight background change when hovering the whole card */
+.card:hover {
+    background-color: #f9f9f9;
+    cursor: pointer;
+}
+
+/* Ensure the WhatsApp button stays prominent */
+.card .btn {
+    margin-left: 20px;
+    white-space: nowrap; /* Keeps text on one line */
+    z-index: 2; /* Keeps it "above" the card link */
+}
+
+.card {
+    display: flex; /* This puts items side-by-side */
+    align-items: center; /* Centers items vertically */
+    background: white;
+    padding: 20px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    text-align: left; /* Aligns text to the left for a cleaner look */
+}
+.card:hover { 
+    transform: translateY(-5px); 
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);}
+.card img {
+    width: 20%; /* Fixed width for the image */
+    height: 20%;
+    border-radius: 4px;
+    margin-right: 25px; /* Creates space between image and text */
+}
+
+.card-content {
+    flex: 1; /* This tells the text box to take up the remaining space */
+}
+
+h3 {
+    margin: 0 0 10px 0;
+    font-size: 22px;
+}
+
+.description {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 15px;
+    line-height: 1.5; /* Makes text easier to read */
+}
+
+.price {
+    font-size: 24px;
+    font-weight: bold;
+    color: #B12704;
+    margin-bottom: 15px;
+}
+
+.btn {
+    display: inline-block; /* Makes the button only as wide as the text */
+    padding: 10px 25px;
+    background: #ffd814;
+    border-radius: 50px;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+.btn:hover { background: #f7ca00; }
+@media (max-width: 600px) {
+    .card {
+        flex-direction: column; /* Stacks image on top of text for phones */
+        text-align: center;
+    }
+    .card img {
+        margin-right: 0;
+        margin-bottom: 15px;
+        width: 100%; /* Makes image full width on small screens */
+    }
+}
+footer {
+    background-color: #232f3e; /* Dark blue/grey like Amazon footer */
+    color: white;
+    padding: 40px 20px;
+    margin-top: 40px;
+    text-align: center;
+}
+
+.footer-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+}
+
+.footer-section h4 {
+    color: #ffd814;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    font-size: 16px;
+}
+
+.footer-section p, .footer-section a {
+    color: #ddd;
+    text-decoration: none;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.footer-section a:hover {
+    color: white;
+    text-decoration: underline;
+}
+
+.social-links a {
+    margin: 0 10px;
+    font-size: 20px;
+}
+
+.copyright {
+    margin-top: 30px;
+    border-top: 1px solid #3a4553;
+    padding-top: 20px;
+    font-size: 12px;
+    color: #999;
+}
+/* The Square Icon Button */
+.menu-trigger {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    width: 50px;
+    height: 50px;
+    background: #232f3e; /* Amazon Dark Blue */
+    color: #ffd814; /* Amazon Yellow */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    cursor: pointer;
+    z-index: 9999; /* Higher than everything */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    transition: transform 0.2s;
+}
+
+.menu-trigger:hover {
+    transform: scale(1.1);
+}
+
+/* The Sidebar Drawer */
+.navigation-sidebar {
+    position: fixed;
+    top: 0;
+    left: -280px; /* Moves it off-screen */
+    width: 260px;
+    height: 100%;
+    background: #1a222d; /* Slightly darker than trigger */
+    z-index: 9998;
+    transition: all 0.4s ease-in-out;
+    padding: 90px 20px 20px 20px;
+    box-shadow: 10px 0 20px rgba(0,0,0,0.4);
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* Hover Logic: Slide in when hovering trigger OR sidebar */
+.menu-trigger:hover + .navigation-sidebar,
+.navigation-sidebar:hover {
+    left: 0;
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Sidebar Text & Links */
+.sidebar-brand {
+    color: #ffd814;
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 30px;
+    font-family: Georgia, serif;
+}
+
+.sidebar-group small {
+    color: #888;
+    display: block;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+    font-size: 10px;
+}
+
+.sidebar-group a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 12px;
+    margin-bottom: 5px;
+    border-radius: 4px;
+    transition: 0.2s;
+}
+
+.sidebar-group a:hover {
+    background: #37475a;
+    color: #ffd814;
+}
+
+/* Specific WhatsApp Button style inside sidebar */
+.wa-sidebar-btn {
+    background: #25D366 !important;
+    color: white !important;
+    margin-top: 15px;
+    justify-content: center;
+    font-weight: bold;
+}
+/* Floating Welcome Message */
+#welcome-toast {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: #232f3e;
+    color: #ffd814;
+    padding: 15px 25px;
+    border-radius: 50px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    z-index: 10000;
+    display: none; /* Hidden by default */
+    animation: slideIn 0.5s ease-out;
+}
+
+@keyframes slideIn {
+    from { transform: translateX(100%); }
+    to { transform: translateX(0); }
+}
+
+.locked-btn {
+    background: #ccc !important;
+    cursor: not-allowed !important;
+}
+#welcome-popup {
+    position: fixed;
+    top: 25px;
+    right: 25px;
+    background: white;
+    color: #232f3e;
+    padding: 12px 25px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    border-left: 5px solid #ffd814;
+    font-weight: bold;
+    z-index: 10001;
+    display: none; /* Hidden until login */
+    animation: slideLeft 0.5s ease-out;
+}
+
+@keyframes slideLeft {
+    from { transform: translateX(100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+.disabled-wa {
+    background: #e7e7e7 !important;
+    color: #888 !important;
+    cursor: not-allowed !important;
+    pointer-events: none;
+}
